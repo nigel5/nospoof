@@ -43,7 +43,7 @@ export class JobsComponent implements OnInit {
     this.ns.selectJob(truckId, jobId).subscribe(
       next => {
         console.log(next);
-        return alert("Sucess!");
+        return alert("Success!");
       }, err => {
         console.log(err);
         return alert("Could not take job id " + jobId);
