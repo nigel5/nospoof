@@ -1,3 +1,20 @@
-<p>
-  history works!
-</p>
+<h1>Job History</h1>
+<div>
+  <button style="margin: 5px 5px 5px 5px;"  (click)="loadHistory()">Get History</button>
+</div>
+<table>
+  <tr>
+    <th>Origin</th>
+    <th>Destination</th>
+    <th>Size</th>
+    <th>Posting Date</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let job of history">
+    <td>{{job["origin"]}}</td>
+    <td>{{job["destination"]}}</td>
+    <td>{{job["size"]}}</td>
+    <td>{{job["date"]}}</td>
+    <td>Delivered +/-{{timeDelay()}}</td>
+  </tr>
+</table>

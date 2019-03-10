@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NospoofService } from '../../services/nospoof.service';
-import { mergeAnalyzedFiles } from '@angular/compiler';
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
