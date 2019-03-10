@@ -1,0 +1,24 @@
+#text{
+    color: black;
+    font-weight: bold;
+    font-family: montserrat;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+.menu-btn1 {
+    background-color: #F18F01;
+    color: white;
+}
+.menu-btn2 {
+    background-color: #048BA8;
+    color: white;
+}
+.menu-btn3 {
+    background-color: #99C240;
+    color: white;
+}
+.home-btn {
+    background-color: #FFFFFF;
+    color: black;
+}
