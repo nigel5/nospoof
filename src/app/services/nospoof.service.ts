@@ -13,6 +13,9 @@ export class NospoofService {
   }
 
   selectJob(truckId: string, jobId: string) {
+    return this.httpClient.post(`/api/v1/select-job/${jobId}`, {
+      truckId: truckId
+    });
   }
 
   checkIn(jobId: string, key: string) {
