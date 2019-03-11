@@ -15,13 +15,16 @@ export class RecieverComponent implements OnInit {
 
   onClickSignOff(jobId: string, key: string) {
     if (!jobId || !key) {
-      return alert("Please enter a valid job id and unlock key")
+      return alert("Please enter the correct job id and unlock key")
     }
     this.ns.checkIn(jobId, key).subscribe(
       next => {
-        console.log("All good, so far!", next)
+        if (next["error"]) {
+          return alert("Please enter the correct job id and unlock key")
+        }
+        return alert("Sucessfully signed off job!")
       }, err => {
-        console.log("Oops! There was an error. Please try again later")
+        console.log("Oops! There was an error. Please try again later", err)
       })
   }
 
