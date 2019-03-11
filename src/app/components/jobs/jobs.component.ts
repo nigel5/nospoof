@@ -30,11 +30,15 @@ export class JobsComponent implements OnInit {
       () => {
         return alert("Could not retrieve jobs. Please try again later, or contact support for help");
       }, () => {
-      // Format date
+      // Format date, also if no size, then set to 'N/A'
           var d: Date;
           Object.keys(this.jobs).forEach((key) => {
-            d = new Date((this.jobs[key]["date"]["_seconds"] * 1000) + (this.jobs[key]["date"]["_nanoseconds"] / 1000))
-            this.jobs[key]["date"] =  `${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
+            d = new Date((this.jobs[key]["date"]["_seconds"] * 1000) + (this.jobs[key]["date"]["_nanoseconds"] / 1000));
+            this.jobs[key]["date"] =  `${monthNames[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+
+            if (!this.jobs[key]["size"]) {
+              this.jobs[key]["size"] = "N/A";
+            }
         })
       });
   }
