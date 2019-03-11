@@ -1,12 +1,14 @@
-<br>
-<hr>
-<h1>Recieve a package</h1>
-<div>
-  Enter job id:&nbsp;
-  <input id="jobId" #jobId type="text" />
+<div style="background-color: grey;">
   <br>
-  Enter sign off code:&nbsp;
-  <input id="uKey" #uKey type="text" />
-
-  <button style="margin: 5px 5px 5px 5px;" (click)="onClickSignOff()">Sign off load</button>
+  <hr>
+  <h1>Recieve a package from truck 'NakLrvNzjDx5TDcbzWjM'</h1>
+  <div>
+    Enter job id:&nbsp;
+    <input id="jobIdRec" #jobIdRec type="text" />
+    <br>
+    Enter sign off code:&nbsp;
+    <input id="uKeyRec" #uKeyRec type="text" />
+  
+    <button style="margin: 5px 5px 5px 5px;" (click)="onClickSignOff(jobIdRec.value, uKeyRec.value)">Sign off load</button>
+  </div>
 </div>

@@ -13,20 +13,16 @@ export class RecieverComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClickSignOff() {
-    var jobId = (<HTMLInputElement>document.getElementById('jobId')).value
-    var truckId = (<HTMLInputElement>document.getElementById('jobId')).value
-    var uKey = (<HTMLInputElement>document.getElementById('uKey')).value
-
-    this.ns.checkIn(jobId, truckId, uKey).subscribe(
+  onClickSignOff(jobId: string, key: string) {
+    if (!jobId || !key) {
+      return alert("Please enter a valid job id and unlock key")
+    }
+    this.ns.checkIn(jobId, key).subscribe(
       next => {
-        console.log(next)
+        console.log("All good, so far!", next)
       }, err => {
-        console.log(err)
-      }, () => {
-        console.log("DONE")
-      }
-    )
+        console.log("Oops! There was an error. Please try again later")
+      })
   }
 
 }

@@ -26,9 +26,8 @@ export class NospoofService {
     return this.httpClient.get(`/api/v1/job/${jobId}`);
   }
 
-  checkIn(jobId: string, truckId: string, key: string) {
+  checkIn(jobId: string, key: string) {
     return this.httpClient.post('/api/v1/reciever/check-in', {
-      truckId: truckId,
       jobId: jobId,
       key: key
     })
