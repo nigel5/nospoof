@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NospoofService } from '../../services/nospoof.service';
 
 @Component({
@@ -6,11 +6,27 @@ import { NospoofService } from '../../services/nospoof.service';
   templateUrl: './reciever.component.html',
   styleUrls: ['./reciever.component.css']
 })
-export class RecieverComponent implements OnInit {
+export class RecieverComponent {
 
   constructor(private ns: NospoofService) { }
 
-  ngOnInit() {
+  onClickTrackLoad(jobId: string) {
+    if (!jobId) {
+      return alert("Please enter the correct job id to track your load")
+    }
+    this.ns.getJobById(jobId).subscribe(
+      next => {
+        if (next["error"]) {
+          return alert("Please enter the correct job id and unlock key")
+        }
+        return alert(`
+        Origin: ${next["data"]["job"]["origin"]}
+        Destination: ${next["data"]["job"]["destination"]}
+        Key: ${next["data"]["job"]["key"]}`)
+      }, err => {
+        console.log("Oops! There was an error. Please try again later", err)
+      }
+    )
   }
 
   onClickSignOff(jobId: string, key: string) {

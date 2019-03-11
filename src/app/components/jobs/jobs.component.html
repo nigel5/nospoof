@@ -1,23 +1,25 @@
-<h1>Job Listings</h1>
-<div>
-  Login:&nbsp;
-  <input id="truckId" #truckId type="text" placeholder="truck id"/>
-  <button style="margin: 5px 5px 5px 5px;"  (click)="onClickGetJobs(truckId.value)">Get Jobs</button>
+<div class="container">
+  <h1>Job Listings</h1>
+  <div>
+    Login:&nbsp;
+    <input id="truckId" #truckId type="text" placeholder="truck id"/>
+    <button style="margin: 5px 5px 5px 5px;"  (click)="onClickGetJobs(truckId.value)">Get Jobs</button>
+  </div>
+  <table>
+    <tr>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Size</th>
+      <th>Posting Date</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let job of jobs">
+      <td>{{job["origin"]}}</td>
+      <td>{{job["destination"]}}</td>
+      <td>{{job["size"]}}</td>
+      <td>{{job["date"]}}</td>
+      <td><button (click)="onClickTakeJob(truckId.value, job['jobId'])">Take Job</button></td>
+    </tr>
+    <tr></tr>
+  </table>
 </div>
-<table>
-  <tr>
-    <th>Origin</th>
-    <th>Destination</th>
-    <th>Size</th>
-    <th>Posting Date</th>
-    <th>Action</th>
-  </tr>
-  <tr *ngFor="let job of jobs">
-    <td>{{job["origin"]}}</td>
-    <td>{{job["destination"]}}</td>
-    <td>{{job["size"]}}</td>
-    <td>{{job["date"]}}</td>
-    <td><button (click)="onClickTakeJob(truckId.value, job['jobId'])">Take Job</button></td>
-  </tr>
-  <tr></tr>
-</table>
