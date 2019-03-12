@@ -22,7 +22,8 @@ export class RecieverComponent {
         return alert(`
         Origin: ${next["data"]["job"]["origin"]}
         Destination: ${next["data"]["job"]["destination"]}
-        Key: ${next["data"]["job"]["key"]}`)
+        Key: ${next["data"]["job"]["key"]}
+        Status: ${next["data"]["job"]["status"]}`)
       }, err => {
         console.log("Oops! There was an error. Please try again later", err)
       }
@@ -38,7 +39,7 @@ export class RecieverComponent {
         if (next["error"]) {
           return alert("Please enter the correct job id and unlock key")
         }
-        return alert("Sucessfully signed off job!")
+        return alert("Successfully signed off job!")
       }, err => {
         console.log("Oops! There was an error. Please try again later", err)
       })

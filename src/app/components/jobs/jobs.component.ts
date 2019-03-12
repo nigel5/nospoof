@@ -24,7 +24,7 @@ export class JobsComponent implements OnInit {
   
     this.ns.getJobs(truckId).subscribe(
       next => {
-      if (next["error"]) { return alert("Could not retrieve jobs. Please try again later, or contact support for help") }
+      if (next["error"]) { return alert(`Could not retrieve jobs. ${next["error"]["message"]}. Please try again later, or contact support for help`) }
       this.jobs = next["data"]["jobs"];
       },
       () => {
@@ -46,10 +46,9 @@ export class JobsComponent implements OnInit {
   onClickTakeJob(truckId: string, jobId: string) {
     this.ns.selectJob(truckId, jobId).subscribe(
       next => {
-        console.log(next);
-        return alert("Success!");
+        if (next["error"]) { return alert(`Could not take job. ${next["error"]["message"]}`) }
+        return alert(`Success! Pickup location is at ${next["data"]["jobs"][0]["origin"]}`);
       }, err => {
-        console.log(err);
         return alert("Could not take job id " + jobId);
       }, () => {
 
